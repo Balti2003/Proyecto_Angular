@@ -1,11 +1,13 @@
 import { Routes } from '@angular/router';
 import { appRoutes } from '../app.routes';
 import { PrivateComponent } from './private.component';
+import { authGuard } from '../guards';
 
 export const routes: Routes = [
     {
         path: '',
         component: PrivateComponent,
+        canActivateChild: [authGuard],
         children: [
             {
                 path: '',
@@ -14,7 +16,9 @@ export const routes: Routes = [
             },
             {
                 path: appRoutes.private.characters,
-                loadComponent: () => import('./characters/characters.component').then(m => m.CharactersComponent)
+                loadComponent: () => 
+                    import('./characters/characters.component').then(
+                        m => m.CharactersComponent)
             }
         ]
     },

@@ -4,7 +4,7 @@ import { inject, PLATFORM_ID } from '@angular/core';
 import { appRoutes } from '../app.routes';
 import { isPlatformServer } from '@angular/common';
 
-export const authGuard: CanActivateChildFn = (childRoute, state) => {
+export const authGuard: CanActivateChildFn = () => {
   const localManager = inject(LocalManagerService);
   const router = inject(Router);
   const platformId = inject(PLATFORM_ID);
