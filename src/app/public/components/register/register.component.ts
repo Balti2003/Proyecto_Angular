@@ -27,7 +27,7 @@ export class RegisterComponent {
   localManager = inject(LocalManagerService)
 
   registerForm = new FormGroup<RegisterForm>({
-    email: new FormControl('', { nonNullable: true, validators: [Validators.email, Validators.required] }),
+    email: new FormControl('', { nonNullable: true, validators: [Validators.email, Validators.required, Validators.minLength(6)] }),
     password: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
     confirmPassword: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
   }, 

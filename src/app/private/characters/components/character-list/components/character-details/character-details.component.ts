@@ -1,5 +1,6 @@
 import { Character } from '@/app/private/characters/models';
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { CharacterService } from '@/app/private/characters/services';
+import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
 
 @Component({
   selector: 'app-character-details.component',
@@ -11,4 +12,9 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 })
 export class CharacterDetailsComponent {
   character = input.required<Character>()
+  characterService = inject(CharacterService)
+
+  removeCharacter(characterId: number) {
+    this.characterService.deleteCharacter(characterId);
+  }
 }

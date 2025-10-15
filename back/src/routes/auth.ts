@@ -100,7 +100,7 @@ authRouter.post(
     const user = usersList.find((u) => u.refreshToken === refreshToken);
 
     if (!user) {
-      res.status(403).json({ message: "Refresh Token inválido" });
+      res.status(400).json({ message: "Refresh Token inválido" });
       return;
     }
 

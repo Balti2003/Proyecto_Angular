@@ -10,7 +10,8 @@ export const appRoutes = {
     },
     private: {
         root: 'private',
-        characters: 'characters'
+        characters: 'characters',
+        new_character: 'new-character',
     }
 }
 
